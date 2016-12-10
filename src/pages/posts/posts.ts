@@ -32,7 +32,9 @@ export class PostsPage {
   getPostImage(post) {
    let postImage = '';
    if (!post.imageError && post.preview) {
-     postImage = post.preview.images[0].source.url;
+     postImage = post.preview.images[0].variants.gif ?
+       post.preview.images[0].variants.gif.source.url :
+       post.preview.images[0].source.url;
    }
    return postImage;
   }
